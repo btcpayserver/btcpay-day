@@ -20,7 +20,7 @@ export default function Navbar() {
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-xl border-b border-border/40 transition-all duration-300">
+      <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-xl border-b border-border/40 transition-all duration-300" style={{ transform: 'translateZ(0)' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center gap-6">
           <a href="#home" aria-label="BTCPay Day home" className="flex items-center gap-2.5 shrink-0 group">
             <BTCPayMark className="h-8 w-auto transition-transform duration-300 group-hover:scale-105" />

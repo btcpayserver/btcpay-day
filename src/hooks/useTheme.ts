@@ -15,7 +15,9 @@ function getInitialTheme(): Theme {
 }
 
 function applyTheme(theme: Theme) {
-  document.documentElement.classList.toggle('dark', theme === 'dark')
+  const root = document.documentElement
+  root.classList.toggle('dark', theme === 'dark')
+  root.style.colorScheme = theme
   localStorage.setItem('theme', theme)
   const meta = document.querySelector('meta[name="theme-color"]')
   if (meta) meta.setAttribute('content', THEME_COLORS[theme])

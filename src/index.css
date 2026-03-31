@@ -32,6 +32,7 @@
 
 @layer base {
   :root {
+    color-scheme: light;
     --background:          210 20% 98%;
     --foreground:          0 0% 16%;
     --card:                0 0% 100%;
@@ -50,6 +51,7 @@
   }
 
   .dark {
+    color-scheme: dark;
     --background:          216 28% 7%;
     --foreground:          210 40% 96%;
     --card:                215 15% 15%;
@@ -102,6 +104,7 @@
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
     border: 1px solid hsl(var(--border) / 0.5);
+    transform: translateZ(0);
   }
 
   /* Gradient text for hero Prague label — webkit-background-clip must be in CSS, React drops it */
