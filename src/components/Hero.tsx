@@ -10,6 +10,9 @@ export default function Hero() {
   return (
     <section id="home" className="relative overflow-hidden pt-16 min-h-screen flex flex-col justify-center">
 
+      {/* Solid dark base — always rendered so YouTube error UI never bleeds through */}
+      <div className="absolute inset-0 z-0" style={{ background: 'hsl(216 28% 7%)' }} />
+
       {/* Video background — skipped entirely when OS reduces motion */}
       {!prefersReducedMotion && (
         <div className="absolute inset-0 z-0 pointer-events-none">
@@ -22,7 +25,7 @@ export default function Hero() {
             transform: 'translate(-50%, -50%)',
           }}>
             <iframe
-              src={`https://www.youtube.com/embed/${EVENT.youtubeHeroId}?autoplay=1&mute=1&controls=0&loop=1&playlist=${EVENT.youtubeHeroId}&modestbranding=1&playsinline=1`}
+              src={`https://www.youtube.com/embed/${EVENT.youtubeHeroId}?autoplay=1&mute=1&controls=0&loop=1&playlist=${EVENT.youtubeHeroId}&playsinline=1`}
               title="BTCPay Day Prague background"
               allow="autoplay; encrypted-media"
               className="w-full h-full"
@@ -34,10 +37,10 @@ export default function Hero() {
         </div>
       )}
 
-      {/* Static gradient fallback shown when motion is reduced */}
+      {/* Static gradient shown when motion is reduced (sits on top of dark base) */}
       {prefersReducedMotion && (
         <div className="absolute inset-0 z-0" style={{
-          background: 'radial-gradient(ellipse 80% 60% at 50% 30%, hsl(110 48% 14% / 0.7) 0%, hsl(216 28% 7%) 70%)',
+          background: 'radial-gradient(ellipse 80% 60% at 50% 30%, hsl(110 48% 14% / 0.7) 0%, transparent 70%)',
         }} />
       )}
 
