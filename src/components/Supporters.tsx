@@ -13,7 +13,7 @@ interface Supporter {
 // Add entries here and a matching <symbol> in SupporterSprite.tsx
 const SUPPORTERS: Supporter[] = [
   { name: 'BTCPay Foundation', url: 'https://btcpayfoundation.org',    svgId: 'supporter-btcpay-foundation', viewBox: '3.5 0 62 107.758' },
-  { name: 'BTC Prague',        url: 'https://btcprague.com',           svgId: 'supporter-btcprague',         viewBox: '0 0 126 44',       fillCurrentColor: true },
+  { name: 'BTC Prague',        url: 'https://btcprague.com',           svgId: 'supporter-btcprague',         viewBox: '0 0 126 44' },
   { name: 'Spiral',            url: 'https://spiral.xyz/',             svgId: 'supporter-spiral',            viewBox: '0 0 629 629' },
   { name: 'OpenSats',          url: 'https://opensats.org/',           svgId: 'supporter-opensats',          viewBox: '0 0 5220 720' },
   { name: 'Tether',            url: 'https://tether.to/',              svgId: 'supporter-tether',            viewBox: '0 0 111 90' },

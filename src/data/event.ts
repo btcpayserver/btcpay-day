@@ -9,5 +9,4 @@ export const EVENT = {
   telegramUrl: 'https://t.me/+h9RyKmiXBdhhM2I0',
   youtubeHeroId: 'rIjNPuYxVMo',
   youtubeRigaId: 'JWZPN-SAO3U',
-  rigaTimestamp: 6423,
 } as const

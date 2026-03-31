@@ -38,7 +38,7 @@ export default function About() {
           <div className="glass rounded-2xl overflow-hidden">
             <div className="aspect-video w-full">
               <iframe
-                src={`https://www.youtube.com/embed/${EVENT.youtubeRigaId}?start=${EVENT.rigaTimestamp}`}
+                src={`https://www.youtube.com/embed/${EVENT.youtubeRigaId}`}
                 title="BTCPay Day Riga 2024"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
