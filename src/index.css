@@ -1,0 +1,165 @@
+@import "tailwindcss";
+
+@plugin "tailwindcss-animate";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-sans:    'Inter', sans-serif;
+  --font-display: 'Space Grotesk', sans-serif;
+
+  --color-background:           hsl(var(--background));
+  --color-foreground:           hsl(var(--foreground));
+  --color-card:                 hsl(var(--card));
+  --color-card-foreground:      hsl(var(--card-foreground));
+  --color-primary:              hsl(var(--primary));
+  --color-primary-foreground:   hsl(var(--primary-foreground));
+  --color-secondary:            hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-muted:                hsl(var(--muted));
+  --color-muted-foreground:     hsl(var(--muted-foreground));
+  --color-accent:               hsl(var(--accent));
+  --color-accent-foreground:    hsl(var(--accent-foreground));
+  --color-border:               hsl(var(--border));
+  --color-ring:                 hsl(var(--ring));
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+}
+
+@layer base {
+  :root {
+    --background:          210 20% 98%;
+    --foreground:          0 0% 16%;
+    --card:                0 0% 100%;
+    --card-foreground:     0 0% 16%;
+    --primary:             110 48% 47%;
+    --primary-foreground:  0 0% 100%;
+    --secondary:           210 16% 93%;
+    --secondary-foreground: 0 0% 16%;
+    --muted:               210 16% 93%;
+    --muted-foreground:    210 10% 35%;
+    --accent:              110 48% 95%;
+    --accent-foreground:   110 55% 22%;
+    --border:              210 14% 89%;
+    --ring:                110 55% 30%;
+    --radius:              0.5rem;
+  }
+
+  .dark {
+    --background:          216 28% 7%;
+    --foreground:          210 40% 96%;
+    --card:                215 15% 15%;
+    --card-foreground:     210 40% 96%;
+    --primary:             110 48% 47%;
+    --primary-foreground:  0 0% 100%;
+    --secondary:           210 12% 21%;
+    --secondary-foreground: 210 40% 96%;
+    --muted:               210 12% 21%;
+    --muted-foreground:    215 14% 62%;
+    --accent:              213 10% 28%;
+    --accent-foreground:   210 40% 92%;
+    --border:              210 12% 21%;
+    --ring:                110 48% 47%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    overflow-x: clip;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+    transition: background-color 150ms ease, color 150ms ease;
+    overflow-x: clip;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+
+  ::selection {
+    background-color: hsl(var(--primary) / 0.25);
+  }
+}
+
+/* ─── Utilities ─────────────────────────────────────────────────────────── */
+
+@layer utilities {
+  .glass {
+    background-color: hsl(var(--card) / 0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid hsl(var(--border) / 0.5);
+  }
+
+  /* Gradient text for hero Prague label — webkit-background-clip must be in CSS, React drops it */
+  .text-czech {
+    background: linear-gradient(90deg, hsl(110 55% 65%) 0%, hsl(110 48% 38%) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Alternating section tint for visual rhythm */
+  .section-alt {
+    background-color: hsl(var(--muted) / 0.35);
+  }
+
+  /* Fade-up reveal animation for scroll-triggered sections */
+  .reveal {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Staggered card reveals */
+  .card-enter   { animation: cardEnter 0.45s ease both; }
+  .card-enter-1 { animation-delay:  60ms; }
+  .card-enter-2 { animation-delay: 130ms; }
+  .card-enter-3 { animation-delay: 200ms; }
+  .card-enter-4 { animation-delay: 270ms; }
+  .card-enter-5 { animation-delay: 340ms; }
+  .card-enter-6 { animation-delay: 410ms; }
+
+  @keyframes cardEnter {
+    from { opacity: 0; transform: translateY(14px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Sticky bar slide-in from top */
+  @keyframes slideDown {
+    from { opacity: 0; transform: translateY(-100%); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .animate-slide-down {
+    animation: slideDown 0.3s ease both;
+  }
+}
+
+/* ─── Webkit Scrollbar ──────────────────────────────────────────────────── */
+
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted-foreground) / 0.3);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground) / 0.6);
+}
+* {
+  scrollbar-width: thin;
+  scrollbar-color: hsl(var(--muted-foreground) / 0.3) transparent;
+}
