@@ -27,7 +27,8 @@ export default function Hero() {
             <iframe
               src={`https://www.youtube.com/embed/${EVENT.youtubeHeroId}?autoplay=1&mute=1&controls=0&loop=1&playlist=${EVENT.youtubeHeroId}&playsinline=1`}
               title="BTCPay Day Prague background"
-              allow="autoplay; encrypted-media"
+              allow="autoplay; encrypted-media; fullscreen"
+              allowFullScreen
               className="w-full h-full"
               style={{ pointerEvents: 'none' }}
             />
