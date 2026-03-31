@@ -23,19 +23,16 @@ export const agenda: AgendaSlot[] = [
     time: '12:30 - 13:00',
     type: 'keynote',
     title: 'TBD',
-    speaker: 'Kilian',
   },
   {
     time: '13:00 - 13:30',
     type: 'keynote',
     title: 'TBD',
-    speaker: 'Francis Pouliot',
   },
   {
     time: '13:30 - 14:00',
     type: 'keynote',
     title: 'TBD',
-    speaker: 'Nicolas Dorier',
   },
   {
     time: '14:00 - 14:30',

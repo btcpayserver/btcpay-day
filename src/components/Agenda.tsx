@@ -50,9 +50,9 @@ export default function Agenda() {
                 )}
                 style={{ transitionDelay: `${i * 50}ms` }}
               >
-                <div className="w-20 shrink-0 text-right">
+                <div className="w-28 shrink-0 text-right">
                   <span className={cn(
-                    'text-xs font-semibold tabular-nums',
+                    'text-xs font-semibold tabular-nums whitespace-nowrap',
                     minor ? 'text-muted-foreground/60' : 'text-muted-foreground'
                   )}>
                     {slot.time}

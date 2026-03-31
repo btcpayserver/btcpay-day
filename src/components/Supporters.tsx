@@ -40,7 +40,7 @@ export default function Supporters() {
           <h2 className="font-display font-bold text-4xl sm:text-5xl text-foreground">Brought to you by</h2>
         </div>
 
-        <div className={cn('grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4 reveal', isVisible && 'visible')} style={{ transitionDelay: '80ms' }}>
+        <div className={cn('flex flex-wrap justify-center gap-4 reveal', isVisible && 'visible')} style={{ transitionDelay: '80ms' }}>
           {SUPPORTERS.map((s, i) => (
             <a
               key={s.svgId}
@@ -48,7 +48,7 @@ export default function Supporters() {
               target="_blank"
               rel="noopener noreferrer"
               title={s.name}
-              className="glass rounded-2xl p-6 flex flex-col items-center justify-center gap-3 hover:-translate-y-1 hover:border-primary/40 transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              className="glass rounded-2xl p-6 flex flex-col items-center justify-center gap-3 hover:-translate-y-1 hover:border-primary/40 transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring w-[calc(50%-8px)] sm:w-[calc(33.333%-11px)] lg:w-[160px]"
               style={{ transitionDelay: `${i * 40}ms` }}
             >
               <svg
