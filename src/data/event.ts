@@ -1,5 +1,5 @@
 export const EVENT = {
-  date:       'June 14, 2026',
+  date:       'June 14th, 2026',
   time:       '12:00 PM',
   venue:      'Hotel Duo',
   address:    'Teplická 492, 190 00 Praha 9',
