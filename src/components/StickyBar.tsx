@@ -1,7 +1,5 @@
 import { useEffect, useState } from 'react'
-
-// TODO: Replace with your real ticket registration URL
-const TICKET_URL = '#register'
+import { EVENT } from '@/data/event'
 
 export default function StickyBar() {
   const [visible, setVisible] = useState(false)
@@ -26,11 +24,11 @@ export default function StickyBar() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between gap-4">
           <span className="text-sm font-medium text-foreground hidden sm:block">
             BTCPay Day ·{' '}
-            <span className="text-muted-foreground">Prague · June 14, 2026 · 12:00 PM</span>
+            <span className="text-muted-foreground">Prague · {EVENT.date} · {EVENT.time}</span>
           </span>
           <span className="text-sm font-medium text-foreground sm:hidden">BTCPay Day Prague 2026</span>
           <a
-            href={TICKET_URL}
+            href={EVENT.ticketUrl}
             className="shrink-0 flex items-center justify-center px-5 py-1.5 rounded-lg text-sm font-semibold bg-primary text-primary-foreground hover:opacity-90 transition-opacity duration-150"
           >
             Register Now

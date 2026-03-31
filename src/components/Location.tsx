@@ -1,15 +1,7 @@
 import { MapPin, Clock, Calendar, ExternalLink } from 'lucide-react'
 import { useScrollReveal } from '@/hooks/useScrollReveal'
 import { cn } from '@/lib/utils'
-
-const VENUE = {
-  name: 'Hotel Duo',
-  address: 'Teplická 492, 190 00 Praha 9',
-  city: 'Prague, Czech Republic',
-  date: 'June 14, 2026',
-  time: '12:00 PM',
-  mapsUrl: 'https://maps.google.com/?q=Hotel+Duo+Praha+Teplická+492',
-}
+import { EVENT } from '@/data/event'
 
 // OpenStreetMap embed for Hotel Duo Praha (approx. coords: 50.1039, 14.4697)
 const OSM_EMBED = 'https://www.openstreetmap.org/export/embed.html?bbox=14.449%2C50.094%2C14.490%2C50.114&layer=mapnik&marker=50.1039%2C14.4697'
@@ -32,9 +24,9 @@ export default function Location() {
           {/* Venue details card */}
           <div className="glass rounded-2xl p-8 flex flex-col gap-6">
             <div>
-              <h3 className="font-display font-bold text-2xl text-foreground">{VENUE.name}</h3>
-              <p className="text-muted-foreground mt-1">{VENUE.address}</p>
-              <p className="text-muted-foreground text-sm">{VENUE.city}</p>
+              <h3 className="font-display font-bold text-2xl text-foreground">{EVENT.venue}</h3>
+              <p className="text-muted-foreground mt-1">{EVENT.address}</p>
+              <p className="text-muted-foreground text-sm">{EVENT.city}</p>
             </div>
 
             <div className="flex flex-col gap-3">
@@ -42,24 +34,24 @@ export default function Location() {
                 <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-primary/10">
                   <Calendar size={14} className="text-primary" />
                 </span>
-                {VENUE.date}
+                {EVENT.date}
               </div>
               <div className="flex items-center gap-3 text-sm text-foreground">
                 <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-primary/10">
                   <Clock size={14} className="text-primary" />
                 </span>
-                Doors open at {VENUE.time}
+                Doors open at {EVENT.time}
               </div>
               <div className="flex items-center gap-3 text-sm text-foreground">
                 <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-primary/10">
                   <MapPin size={14} className="text-primary" />
                 </span>
-                {VENUE.city}
+                {EVENT.city}
               </div>
             </div>
 
             <a
-              href={VENUE.mapsUrl}
+              href={EVENT.mapsUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 self-start px-5 py-2.5 rounded-xl border border-border text-sm font-medium text-foreground hover:bg-muted transition-colors duration-150"

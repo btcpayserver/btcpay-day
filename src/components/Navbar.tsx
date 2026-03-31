@@ -1,22 +1,41 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Menu, X, Send } from 'lucide-react'
 import ThemeToggle from '@/components/ThemeToggle'
 import BTCPayMark from '@/components/BTCPayMark'
-
-// TODO: Replace with your real ticket registration URL
-const TICKET_URL = '#register'
-
-const TELEGRAM_URL = 'https://t.me/+h9RyKmiXBdhhM2I0'
+import { EVENT } from '@/data/event'
 
 const NAV_LINKS = [
-  { label: 'Speakers', href: '#speakers' },
-  { label: 'Agenda', href: '#agenda' },
-  { label: 'Location', href: '#location' },
+  { label: 'Speakers',   href: '#speakers'  },
+  { label: 'Agenda',     href: '#agenda'    },
+  { label: 'Location',   href: '#location'  },
   { label: 'Supporters', href: '#supporters' },
 ]
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
+  const firstLinkRef = useRef<HTMLAnchorElement>(null)
+
+  // Scroll lock
+  useEffect(() => {
+    document.body.style.overflow = mobileOpen ? 'hidden' : ''
+    return () => { document.body.style.overflow = '' }
+  }, [mobileOpen])
+
+  // Escape key closes menu
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && mobileOpen) setMobileOpen(false)
+    }
+    document.addEventListener('keydown', onKey)
+    return () => document.removeEventListener('keydown', onKey)
+  }, [mobileOpen])
+
+  // Move focus into overlay when it opens
+  useEffect(() => {
+    if (mobileOpen) firstLinkRef.current?.focus()
+  }, [mobileOpen])
+
+  const close = () => setMobileOpen(false)
 
   return (
     <>
@@ -30,7 +49,7 @@ export default function Navbar() {
             </span>
           </a>
 
-          <nav className="hidden md:flex items-center gap-1">
+          <nav className="hidden md:flex items-center gap-1" aria-label="Primary navigation">
             {NAV_LINKS.map((link) => (
               <a
                 key={link.href}
@@ -44,7 +63,7 @@ export default function Navbar() {
 
           <div className="flex items-center gap-1.5 ml-auto">
             <a
-              href={TELEGRAM_URL}
+              href={EVENT.telegramUrl}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Join BTCPay Day on Telegram"
@@ -54,7 +73,7 @@ export default function Navbar() {
             </a>
             <ThemeToggle />
             <a
-              href={TICKET_URL}
+              href={EVENT.ticketUrl}
               className="hidden sm:flex items-center gap-1.5 px-4 py-1.5 rounded-lg text-sm font-semibold bg-primary text-primary-foreground hover:opacity-90 transition-opacity duration-150 ml-1"
             >
               Register Now
@@ -63,6 +82,8 @@ export default function Navbar() {
               type="button"
               className="flex md:hidden items-center justify-center w-8 h-8 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted transition-all duration-150 ml-1"
               aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
+              aria-expanded={mobileOpen}
+              aria-controls="mobile-menu"
               onClick={() => setMobileOpen((v) => !v)}
             >
               {mobileOpen ? <X size={18} /> : <Menu size={18} />}
@@ -71,14 +92,22 @@ export default function Navbar() {
         </div>
       </header>
 
+      {/* Mobile menu — implemented as a dialog for correct modal semantics */}
       {mobileOpen && (
-        <div className="fixed inset-0 z-40 bg-background/95 backdrop-blur-2xl flex flex-col pt-20 px-8 pb-10 md:hidden">
-          <nav className="flex flex-col gap-2 flex-1">
-            {NAV_LINKS.map((link) => (
+        <div
+          id="mobile-menu"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Navigation menu"
+          className="fixed inset-0 z-40 bg-background/95 backdrop-blur-2xl flex flex-col pt-20 px-8 pb-10 md:hidden"
+        >
+          <nav className="flex flex-col gap-2 flex-1" aria-label="Mobile navigation">
+            {NAV_LINKS.map((link, i) => (
               <a
                 key={link.href}
+                ref={i === 0 ? firstLinkRef : undefined}
                 href={link.href}
-                onClick={() => setMobileOpen(false)}
+                onClick={close}
                 className="py-4 text-3xl font-display font-bold text-foreground/80 hover:text-foreground border-b border-border/40 transition-colors duration-150"
               >
                 {link.label}
@@ -86,14 +115,14 @@ export default function Navbar() {
             ))}
           </nav>
           <a
-            href={TICKET_URL}
-            onClick={() => setMobileOpen(false)}
+            href={EVENT.ticketUrl}
+            onClick={close}
             className="mt-8 flex items-center justify-center py-4 rounded-2xl text-lg font-semibold bg-primary text-primary-foreground hover:opacity-90 transition-opacity"
           >
             Register Now
           </a>
           <a
-            href={TELEGRAM_URL}
+            href={EVENT.telegramUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="mt-4 flex items-center justify-center gap-2 py-3 rounded-2xl text-sm text-muted-foreground border border-border/60 hover:bg-muted transition-colors"

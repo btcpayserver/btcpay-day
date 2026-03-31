@@ -1,7 +1,6 @@
 import { useScrollReveal } from '@/hooks/useScrollReveal'
 import { cn } from '@/lib/utils'
-
-const RIGA_VIDEO_ID = 'JWZPN-SAO3U'
+import { EVENT } from '@/data/event'
 
 export default function About() {
   const { ref, isVisible } = useScrollReveal()
@@ -39,10 +38,11 @@ export default function About() {
           <div className="glass rounded-2xl overflow-hidden">
             <div className="aspect-video w-full">
               <iframe
-                src={`https://www.youtube.com/embed/${RIGA_VIDEO_ID}?start=6423`}
+                src={`https://www.youtube.com/embed/${EVENT.youtubeRigaId}?start=${EVENT.rigaTimestamp}`}
                 title="BTCPay Day Riga 2024"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
+                loading="lazy"
                 className="w-full h-full"
               />
             </div>

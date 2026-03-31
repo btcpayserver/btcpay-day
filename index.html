@@ -6,7 +6,7 @@
     <title>BTCPay Day Prague 2026</title>
     <meta name="description" content="Join BTCPay Server contributors and community in Prague on June 14, 2026. Keynotes, panels, and surprise guests." />
 
-    <!-- Open Graph -->
+    <!-- Open Graph — replace /og-image.png with a real 1200×630 image before launch -->
     <meta property="og:title" content="BTCPay Day Prague 2026" />
     <meta property="og:description" content="Once a year, BTCPay Server contributors and community gather to celebrate achievements, network, and discuss the project's future." />
     <meta property="og:type" content="website" />
@@ -19,7 +19,12 @@
     <meta name="twitter:description" content="Join us in Prague on June 14, 2026 for BTCPay Day — keynotes, panels, and surprise guests." />
     <meta name="twitter:image" content="/og-image.png" />
 
-    <!-- CSP -->
+    <!--
+      CSP note: meta CSP cannot enforce frame-ancestors (clickjacking protection).
+      Add the following response header at the edge/CDN for full protection:
+        Content-Security-Policy: frame-ancestors 'none'
+        X-Frame-Options: DENY
+    -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://img.youtube.com https://pbs.twimg.com; frame-src https://www.youtube.com https://www.openstreetmap.org; connect-src 'self'" />
 
     <script src="/theme-init.js"></script>
@@ -29,7 +34,8 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     <link rel="shortcut icon" href="/favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <!-- apple-touch-icon: replace with a 180×180 PNG before launch -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon-32x32.png" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
