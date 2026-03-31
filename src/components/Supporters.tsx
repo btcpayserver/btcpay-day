@@ -1,6 +1,7 @@
 import { useScrollReveal } from '@/hooks/useScrollReveal'
 import { cn } from '@/lib/utils'
 import SupporterSprite from '@/components/SupporterSprite'
+import { EVENT } from '@/data/event'
 
 interface Supporter {
   name: string
@@ -64,9 +65,9 @@ export default function Supporters() {
         </div>
 
         <p className={cn('text-center text-sm text-muted-foreground mt-10 reveal', isVisible && 'visible')} style={{ transitionDelay: '500ms' }}>
-          Interested in supporting BTCPay Day?{' '}
-          <a href="mailto:hello@btcpayserver.org" className="text-primary hover:underline underline-offset-2">
-            Get in touch
+          Have questions about the event?{' '}
+          <a href={EVENT.telegramUrl} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline underline-offset-2">
+            Join our Telegram channel
           </a>
         </p>
       </div>

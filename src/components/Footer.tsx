@@ -3,7 +3,7 @@ import BTCPayMark from '@/components/BTCPayMark'
 
 const LINKS = [
   { label: 'btcpayserver.org', href: 'https://btcpayserver.org' },
-  { label: 'GitHub', href: 'https://github.com/btcpayserver' },
+  { label: 'GitHub', href: 'https://github.com/btcpayserver/btcpay-day' },
   { label: 'X / Twitter', href: 'https://x.com/btcpayserver' },
   { label: 'Telegram', href: 'https://t.me/+h9RyKmiXBdhhM2I0', icon: <Send size={12} /> },
 ]
