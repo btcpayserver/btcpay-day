@@ -3,13 +3,6 @@ import { cn } from '@/lib/utils'
 
 const RIGA_VIDEO_ID = 'JWZPN-SAO3U'
 
-const STATS = [
-  { value: '3+', label: 'Past Editions' },
-  { value: '200+', label: 'Attendees' },
-  { value: '10+', label: 'Speakers' },
-  { value: '1 Day', label: 'Packed Schedule' },
-]
-
 export default function About() {
   const { ref, isVisible } = useScrollReveal()
 
@@ -20,13 +13,12 @@ export default function About() {
           ref={ref as React.RefObject<HTMLDivElement>}
           className={cn('grid md:grid-cols-2 gap-12 lg:gap-20 items-center reveal', isVisible && 'visible')}
         >
-          {/* Left: text + stats */}
           <div>
             <p className="text-xs font-bold uppercase tracking-widest text-primary mb-3">About the event</p>
             <h2 className="font-display font-bold text-4xl sm:text-5xl text-foreground mb-6 leading-tight">
               What is BTCPay Day?
             </h2>
-            <div className="space-y-4 text-muted-foreground text-base leading-relaxed mb-10">
+            <div className="space-y-4 text-muted-foreground text-base leading-relaxed">
               <p>
                 Once a year, BTCPay Server contributors and community gather to celebrate achievements, network, and discuss the project's future.
               </p>
@@ -42,18 +34,8 @@ export default function About() {
                 , promises to be the most exciting yet: keynotes, spicy panels, and interactive Q&A sessions featuring surprise guests!
               </p>
             </div>
-
-            <div className="grid grid-cols-2 gap-3">
-              {STATS.map((stat) => (
-                <div key={stat.label} className="glass rounded-xl px-4 py-5">
-                  <p className="font-display font-bold text-3xl text-primary">{stat.value}</p>
-                  <p className="text-xs text-muted-foreground mt-1 leading-snug">{stat.label}</p>
-                </div>
-              ))}
-            </div>
           </div>
 
-          {/* Right: video */}
           <div className="glass rounded-2xl overflow-hidden">
             <div className="aspect-video w-full">
               <iframe
