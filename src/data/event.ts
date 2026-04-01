@@ -7,6 +7,6 @@ export const EVENT = {
   mapsUrl:    'https://maps.google.com/?q=Hotel+Duo+Praha+Teplická+492',
   ticketUrl:  'https://pay.pavlenex.com/apps/2SfptYNoGkDKoc5Sc5C2s6jXpQWD/pos',
   telegramUrl: 'https://t.me/+h9RyKmiXBdhhM2I0',
-  youtubeHeroId: 'rIjNPuYxVMo',
+  youtubeHeroId: 'bg-slyuF-v4',
   youtubeRigaId: 'JWZPN-SAO3U',
 } as const
