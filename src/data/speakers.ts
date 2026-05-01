@@ -10,6 +10,7 @@ export const speakers: Speaker[] = [
   { name: 'Giacomo Zucco',            title: 'President, Plan B Network',        photo: '/images/speakers/giacomozucco.jpg', xHandle: 'giacomozucco'   },
   { name: 'Mir Zucco',                title: 'Cypher Tank, Host A Block with Mir', photo: '/images/speakers/mir_btc.jpg', xHandle: 'mir_btc'        },
   { name: 'Hermann Vivier',           title: 'Founder, Bitcoin Ekasi',           photo: '/images/speakers/vryfokkenou.jpg',   xHandle: 'vryfokkenou'    },
+  { name: 'Emilio Pagan-Yourno',      title: 'Founder, Unbank',                  photo: '/images/speakers/SenorEmilio.jpg',   xHandle: 'SenorEmilio'    },
   { name: 'DSTRUKT',                  title: 'Product Designer',                 photo: '/images/speakers/dstrukt__.jpg',     xHandle: 'dstrukt__'      },
   { name: 'Kukks',                    title: 'Maintainer',                       photo: '/images/speakers/MrKukks.jpg',       xHandle: 'MrKukks'        },
   { name: 'ndeet',                    title: 'Ecommerce Integrations Developer', photo: '/images/speakers/ndeet.jpg',         xHandle: 'ndeet'          },
