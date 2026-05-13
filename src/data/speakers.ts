@@ -9,6 +9,7 @@ export interface Speaker {
 export const speakers: Speaker[] = [
   { name: 'Giacomo Zucco',            title: 'President, Plan B Network',        photo: '/images/speakers/giacomozucco.jpg', xHandle: 'giacomozucco'   },
   { name: 'Mir Zucco',                title: 'Cypher Tank, Host A Block with Mir', photo: '/images/speakers/mir_btc.jpg', xHandle: 'mir_btc'        },
+  { name: 'Stephan Livera',           title: 'Host, SLP podcast',                photo: '/images/speakers/livera.jpg',       xHandle: 'stephanlivera' },
   { name: 'Hermann Vivier',           title: 'Founder, Bitcoin Ekasi',           photo: '/images/speakers/vryfokkenou.jpg',   xHandle: 'vryfokkenou'    },
   { name: 'Emilio Pagan-Yourno',      title: 'Founder, Unbank',                  photo: '/images/speakers/SenorEmilio.jpg',   xHandle: 'SenorEmilio'    },
   { name: 'DSTRUKT',                  title: 'Product Designer',                 photo: '/images/speakers/dstrukt__.jpg',     xHandle: 'dstrukt__'      },
